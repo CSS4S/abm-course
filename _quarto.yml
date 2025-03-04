@@ -1,0 +1,18 @@
+project:
+  type: manuscript
+
+manuscript:
+  article: index.qmd
+
+format:
+  # (other formats)
+  pdf: default
+  html:
+    comments:
+      hypothesis: true
+
+execute:
+  freeze: true
+
+
+

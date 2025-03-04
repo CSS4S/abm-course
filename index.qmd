@@ -1,0 +1,106 @@
+---
+title: "EBS 182/282: Agent-based modeling for sustainability"
+
+bibliography: references.bib
+---
+
+### Contact information
+
+Instructor: Matt Turner [[web](https://mt.digital)]
+
+Email: [maturner\@stanford.edu](maturner@stanford.edu)
+
+Office hours: 1-3 PM Monday and Tuesday in Y2E2 357.
+
+Also available by appointment for in-person or Zoom meetings.
+
+### Logistics
+
+Class times: MW 11:30 - 12:50, Spring 2025
+
+Course website: [https://css4s.github.io/abm-course](https://css4s.github.io/abm-course)
+
+### Motivation
+
+Sustainable practices are useless if no one practices them. The development and diffusion of sustainable practices requires a mix of individual experimentation, social learning and influence, and cooperation and coordination, just to name a few social behaviors. It is essential, then, to develop rigorous, flexible, and practical methods for the simulation of social systems. Students in this course will learn how to use agent-based model simulations of social diffusion of sustainable practices, just like an engineer might first develop computer models to design new products, which are then made into prototypes, and eventually built and delivered to customers. *Sustainable practices* here could be taken as any behavior that advances progress towards achieving [UN Sustainable Development Goals](https://sdgs.un.org/goals). 
+
+
+### Learning goals
+
+Students who successfully complete the course will learn:
+
+- To understand the theoretical origins of agent-based models of social behavior and how to put them to use to support decision making to promote sustainability.
+- To write computational social science research papers, including specific tips for describing agent-based models.
+- Software development skills, such as the ability to write and organize R functions and scripts for more sustainable *software* practices. Software development skills like these make research more reproducible, efficient, and fun.
+
+
+### Prerequisites
+
+The course is designed so that students with minimal programming experience can succeed. Students with no programming experience may feel lost unless extra time is invested. In any case, I am happy to help students with any level of programming experience to elevate their skills, but it is the student's responsibility to seek out help. We will be programming in R using RStudio on student laptops and also running our models on the [Farmshare computing cluster](https://srcc.stanford.edu/farmshare) provided for educational purposes at Stanford.
+
+Some experience with mathematics, especially probability and statistics, will also help, but is not necessary as long as a student in need of help seeks it out. I am happy to help students succeed with any level of mathematical experience.
+
+
+### Coursework and grading
+
+- Four problem sets (10% each, 40% total)
+- Midterm project (20%)
+- Final project (40%)
+
+Attendance is essential for success in this course. This course is a hybrid lecture-lab course, where about half of class time will be devoted to lecture and half to lab work where I will be available for individual help and during which we will sometimes be assigned to groups to discuss course material or work together on problem sets. Whether a given course meeting is a lecture or lab will depend on the rate of our progress through the different subjects and student interests and needs.
+
+The four problem sets will tentatively follow this sequence:
+
+1. Introduction to agent-based modeling and computational social science for sustainability
+2. Computational experiment infrastructure: cluster computing and data management for agent-based modeling 
+3. Reinforcement learning agents, uncertain environments, and selection for social learning 
+4. Cooperation, coordination, social influence, and dynamic social networks
+
+The midterm project is just a first draft of the final project, so in that sense they are one big project. In these projects, students will write their own research papers by following a detailed outline to provide all necessary components. I will work with students during in-class project workshops and in office hours or other out of class time to identify a project of interest and develop the modeling approach to make a real contribution to understanding their chosen problem.
+
+#### Accessibility
+
+Students who need an academic accommodation based on the impact of a disability must initiate the request with the Office of Accessible Education (OAE). Professional staff will evaluate the request with required documentation, recommend reasonable accommodations, and prepare an Accommodation Letter for faculty. Unless the student has a temporary disability, Accommodation letters are issued for the entire academic year. Students should contact the OAE as soon as possible since timely notice is needed to coordinate accommodations. The OAE is located at 563 Salvatierra Walk (phone: 650-723-1066).
+
+#### Late work policy
+
+Unless we discuss otherwise ahead of time, the late work policy is as follows.
+
+- Problem sets: 50% credit up to one week late.
+- Midterm: 50% credit up to one week late.
+- Final: No credit.
+
+#### Course technology and materials
+
+- Students will use the R programming language, including the [`socmod`](https://css4s.github.io/socmod/) library I am developing for this and a suite of courses in Computational Social Science for Sustainability (CSS4S) and for research use. 
+- Readings will come from journal articles and course notes that will be periodically released. 
+- Students will receive detailed in-person guidance on how to develop, execute, and communicate their own social science for sustainability projects using agent-based modeling.
+
+
+### Expectations and policies
+
+You can expect me to be there for you to help you develop programming skills to understand and complete the problem sets. You can expect me to respond promptly and attentively to your needs in the course. This course is programming-intensive: you'll be expected to use and write functions in R and use some more advanced programming concepts. 
+
+I expect students in the course to seek help early if they encounter difficulties. I am happy to make extra time outside the listed office hours to bring students up to speed, in person or on Zoom. 
+
+If life events make finishing the problem sets difficult, I am happy to discuss accommodations. However, these needs must be communicated before the deadline. Please don't hesitate to ask for help in any way before or after a deadline. I know life happens and I will try to find a way to facilitate your success in the course.
+
+
+### Course outline
+
+The agent-based approach allows social scientists to synthesize social network and cognitive models to represent social behavior structured by our dynamic social relationships. Simulations of *interventions* to promote sustainable practices can be used to select from candidate sets of interventions in different real-world social networks. When reality inevitably does not match predictions, this provides motivation and guidance to empirical studies that can help infer potential mechanisms inhibiting the adoption of sustainable practices. These mechanisms can be included in future model predictions, which again motivates further empirical refinement. 
+
+This course will teach students how to use agent-based models to simulate the process of social diffusion in diverse contexts with different behaviors including exploration, social learning and influence, and cooperation and coordination. Developing this expertise requires developing and combining computing skills and a foundational knowledge of relevant social and behavioral science. 
+
+1. Introduction to computational social science for sustainability and agent based modeling.
+1. Computational infrastructure for agent-based modeling. Agent-based modeling requires some specific computational techniques: it is necessary to write one's own functions and use higher-order functions; wrangle data; and plot simulation outputs to do agent-based modeling. For publication-quality research it is often also necessary to use hundreds or more computer processors at a time, enabled by using shared supercomputer clusters, like [Famrshare for educational purposes](https://srcc.stanford.edu/farmshare) or [Sherlock for research](https://www.sherlock.stanford.edu/) at Stanford. Students will learn these techniques and good programming practices including documentation and "literate programming" that uses informative variable names.
+1. Social learning, whose utility is sensitive to ecological uncertainty, since variability or unpredictability can reduce the value of social information [@Turner2023a]. The adaptive mixing of social and asocial information enables humans to optimize behavioral choices, as observed in experiments complemented by agent-based models with reinforcement learning agents [@Witt2024]. Social reinforcement learning agents are actively being developed as a strategy to harness advantages of social learning for artificial intelligence systems [@Jaques2019; @Ndousse2021]. 
+1. Group structure in human relationships and its emergence via *homophily*, i.e., the phenomenon for people to more frequently interact within their own group versus between groups [@McPherson2001], which could be by choice or imposed by socio-economic or other circumstance [@Kossinets2009]. This can create echo chambers and promote between-group animosity but can also provide a substrate for greater innovation and diffusion of adaptations compared to homogeneous populations [@Centola2010; @Centola2011; @Turner2023]. Social networks are dynamic: their evolution may promote adaptation *or* maladaptation [@Smolla2019; @Centola2022].
+1. Throughout presentation of course material, students will learn how computational models of social behavior could be used for understanding real-world phenomena, with a focus on their use in decision making to support sustainability.
+
+
+
+### References
+
+
+
