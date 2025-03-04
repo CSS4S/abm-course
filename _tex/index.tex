@@ -1,0 +1,503 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  letterpaper,
+  DIV=11,
+  numbers=noendperiod]{scrartcl}
+
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else  
+    % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+% Make \paragraph and \subparagraph free-standing
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+% definitions for citeproc citations
+\NewDocumentCommand\citeproctext{}{}
+\NewDocumentCommand\citeproc{mm}{%
+  \begingroup\def\citeproctext{#2}\cite{#1}\endgroup}
+\makeatletter
+ % allow citations to break across lines
+ \let\@cite@ofmt\@firstofone
+ % avoid brackets around text for \cite:
+ \def\@biblabel#1{}
+ \def\@cite#1#2{{#1\if@tempswa , #2\fi}}
+\makeatother
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newenvironment{CSLReferences}[2] % #1 hanging-indent, #2 entry-spacing
+ {\begin{list}{}{%
+  \setlength{\itemindent}{0pt}
+  \setlength{\leftmargin}{0pt}
+  \setlength{\parsep}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1
+   \setlength{\leftmargin}{\cslhangindent}
+   \setlength{\itemindent}{-1\cslhangindent}
+  \fi
+  % set entry spacing
+  \setlength{\itemsep}{#2\baselineskip}}}
+ {\end{list}}
+\usepackage{calc}
+\newcommand{\CSLBlock}[1]{\hfill\break\parbox[t]{\linewidth}{\strut\ignorespaces#1\strut}}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{\strut#1\strut}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{\strut#1\strut}}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
+
+\KOMAoption{captions}{tableheading}
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage{bookmark}
+
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={EBS 182/282: Agent-based modeling for sustainability},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+\title{EBS 182/282: Agent-based modeling for sustainability}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\subsubsection{Contact information}\label{contact-information}
+
+Instructor: Matt Turner {[}\href{https://mt.digital}{web}{]}
+
+Email: \url{maturner@stanford.edu}
+
+Office hours: 1-3 PM Monday and Tuesday in Y2E2 357.
+
+Also available by appointment for in-person or Zoom meetings.
+
+\subsubsection{Logistics}\label{logistics}
+
+Class times: MW 11:30 - 12:50, Spring 2025
+
+Course website: \url{https://css4s.github.io/abm-course}
+
+\subsubsection{Motivation}\label{motivation}
+
+Sustainable practices are useless if no one practices them. The
+development and diffusion of sustainable practices requires a mix of
+individual experimentation, social learning and influence, and
+cooperation and coordination, just to name a few social behaviors. It is
+essential, then, to develop rigorous, flexible, and practical methods
+for the simulation of social systems. Students in this course will learn
+how to use agent-based model simulations of social diffusion of
+sustainable practices, just like an engineer might first develop
+computer models to design new products, which are then made into
+prototypes, and eventually built and delivered to customers.
+\emph{Sustainable practices} here could be taken as any behavior that
+advances progress towards achieving \href{https://sdgs.un.org/goals}{UN
+Sustainable Development Goals}.
+
+\subsubsection{Learning goals}\label{learning-goals}
+
+Students who successfully complete the course will learn:
+
+\begin{itemize}
+\tightlist
+\item
+  To understand the theoretical origins of agent-based models of social
+  behavior and how to put them to use to support decision making to
+  promote sustainability.
+\item
+  To write computational social science research papers, including
+  specific tips for describing agent-based models.
+\item
+  Software development skills, such as the ability to write and organize
+  R functions and scripts for more sustainable \emph{software}
+  practices. Software development skills like these make research more
+  reproducible, efficient, and fun.
+\end{itemize}
+
+\subsubsection{Prerequisites}\label{prerequisites}
+
+The course is designed so that students with minimal programming
+experience can succeed. Students with no programming experience may feel
+lost unless extra time is invested. In any case, I am happy to help
+students with any level of programming experience to elevate their
+skills, but it is the student's responsibility to seek out help. We will
+be programming in R using RStudio on student laptops and also running
+our models on the \href{https://srcc.stanford.edu/farmshare}{Farmshare
+computing cluster} provided for educational purposes at Stanford.
+
+Some experience with mathematics, especially probability and statistics,
+will also help, but is not necessary as long as a student in need of
+help seeks it out. I am happy to help students succeed with any level of
+mathematical experience.
+
+\subsubsection{Coursework and grading}\label{coursework-and-grading}
+
+\begin{itemize}
+\tightlist
+\item
+  Four problem sets (10\% each, 40\% total)
+\item
+  Midterm project (20\%)
+\item
+  Final project (40\%)
+\end{itemize}
+
+Attendance is essential for success in this course. This course is a
+hybrid lecture-lab course, where about half of class time will be
+devoted to lecture and half to lab work where I will be available for
+individual help and during which we will sometimes be assigned to groups
+to discuss course material or work together on problem sets. Whether a
+given course meeting is a lecture or lab will depend on the rate of our
+progress through the different subjects and student interests and needs.
+
+The four problem sets will tentatively follow this sequence:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Introduction to agent-based modeling and computational social science
+  for sustainability
+\item
+  Computational experiment infrastructure: cluster computing and data
+  management for agent-based modeling
+\item
+  Reinforcement learning agents, uncertain environments, and selection
+  for social learning
+\item
+  Cooperation, coordination, social influence, and dynamic social
+  networks
+\end{enumerate}
+
+The midterm project is just a first draft of the final project, so in
+that sense they are one big project. In these projects, students will
+write their own research papers by following a detailed outline to
+provide all necessary components. I will work with students during
+in-class project workshops and in office hours or other out of class
+time to identify a project of interest and develop the modeling approach
+to make a real contribution to understanding their chosen problem.
+
+\paragraph{Accessibility}\label{accessibility}
+
+Students who need an academic accommodation based on the impact of a
+disability must initiate the request with the Office of Accessible
+Education (OAE). Professional staff will evaluate the request with
+required documentation, recommend reasonable accommodations, and prepare
+an Accommodation Letter for faculty. Unless the student has a temporary
+disability, Accommodation letters are issued for the entire academic
+year. Students should contact the OAE as soon as possible since timely
+notice is needed to coordinate accommodations. The OAE is located at 563
+Salvatierra Walk (phone: 650-723-1066).
+
+\paragraph{Late work policy}\label{late-work-policy}
+
+Unless we discuss otherwise ahead of time, the late work policy is as
+follows.
+
+\begin{itemize}
+\tightlist
+\item
+  Problem sets: 50\% credit up to one week late.
+\item
+  Midterm: 50\% credit up to one week late.
+\item
+  Final: No credit.
+\end{itemize}
+
+\paragraph{Course technology and
+materials}\label{course-technology-and-materials}
+
+\begin{itemize}
+\tightlist
+\item
+  Students will use the R programming language, including the
+  \href{https://css4s.github.io/socmod/}{\texttt{socmod}} library I am
+  developing for this and a suite of courses in Computational Social
+  Science for Sustainability (CSS4S) and for research use.
+\item
+  Readings will come from journal articles and course notes that will be
+  periodically released.
+\item
+  Students will receive detailed in-person guidance on how to develop,
+  execute, and communicate their own social science for sustainability
+  projects using agent-based modeling.
+\end{itemize}
+
+\subsubsection{Expectations and
+policies}\label{expectations-and-policies}
+
+You can expect me to be there for you to help you develop programming
+skills to understand and complete the problem sets. You can expect me to
+respond promptly and attentively to your needs in the course. This
+course is programming-intensive: you'll be expected to use and write
+functions in R and use some more advanced programming concepts.
+
+I expect students in the course to seek help early if they encounter
+difficulties. I am happy to make extra time outside the listed office
+hours to bring students up to speed, in person or on Zoom.
+
+If life events make finishing the problem sets difficult, I am happy to
+discuss accommodations. However, these needs must be communicated before
+the deadline. Please don't hesitate to ask for help in any way before or
+after a deadline. I know life happens and I will try to find a way to
+facilitate your success in the course.
+
+\subsubsection{Course outline}\label{course-outline}
+
+The agent-based approach allows social scientists to synthesize social
+network and cognitive models to represent social behavior structured by
+our dynamic social relationships. Simulations of \emph{interventions} to
+promote sustainable practices can be used to select from candidate sets
+of interventions in different real-world social networks. When reality
+inevitably does not match predictions, this provides motivation and
+guidance to empirical studies that can help infer potential mechanisms
+inhibiting the adoption of sustainable practices. These mechanisms can
+be included in future model predictions, which again motivates further
+empirical refinement.
+
+This course will teach students how to use agent-based models to
+simulate the process of social diffusion in diverse contexts with
+different behaviors including exploration, social learning and
+influence, and cooperation and coordination. Developing this expertise
+requires developing and combining computing skills and a foundational
+knowledge of relevant social and behavioral science.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Introduction to computational social science for sustainability and
+  agent based modeling.
+\item
+  Computational infrastructure for agent-based modeling. Agent-based
+  modeling requires some specific computational techniques: it is
+  necessary to write one's own functions and use higher-order functions;
+  wrangle data; and plot simulation outputs to do agent-based modeling.
+  For publication-quality research it is often also necessary to use
+  hundreds or more computer processors at a time, enabled by using
+  shared supercomputer clusters, like
+  \href{https://srcc.stanford.edu/farmshare}{Famrshare for educational
+  purposes} or \href{https://www.sherlock.stanford.edu/}{Sherlock for
+  research} at Stanford. Students will learn these techniques and good
+  programming practices including documentation and ``literate
+  programming'' that uses informative variable names.
+\item
+  Social learning, whose utility is sensitive to ecological uncertainty,
+  since variability or unpredictability can reduce the value of social
+  information (Turner, Moya, et al. 2023). The adaptive mixing of social
+  and asocial information enables humans to optimize behavioral choices,
+  as observed in experiments complemented by agent-based models with
+  reinforcement learning agents (Witt et al. 2024). Social reinforcement
+  learning agents are actively being developed as a strategy to harness
+  advantages of social learning for artificial intelligence systems
+  (Jaques et al. 2019; Ndousse et al. 2021).
+\item
+  Group structure in human relationships and its emergence via
+  \emph{homophily}, i.e., the phenomenon for people to more frequently
+  interact within their own group versus between groups (McPherson,
+  Smith-Lovin, and Cook 2001), which could be by choice or imposed by
+  socio-economic or other circumstance (Kossinets and Watts 2009). This
+  can create echo chambers and promote between-group animosity but can
+  also provide a substrate for greater innovation and diffusion of
+  adaptations compared to homogeneous populations (Centola 2010, 2011;
+  Turner, Singleton, et al. 2023). Social networks are dynamic: their
+  evolution may promote adaptation \emph{or} maladaptation (Smolla and
+  Akçay 2019; Centola 2022).
+\item
+  Throughout presentation of course material, students will learn how
+  computational models of social behavior could be used for
+  understanding real-world phenomena, with a focus on their use in
+  decision making to support sustainability.
+\end{enumerate}
+
+\subsubsection*{References}\label{references}
+\addcontentsline{toc}{subsubsection}{References}
+
+\phantomsection\label{refs}
+\begin{CSLReferences}{1}{0}
+\bibitem[\citeproctext]{ref-Centola2010}
+Centola, Damon. 2010. {``{The Spread of Behavior in an Online Social
+Network Experiment}.''} \emph{Science} 329 (5996): 1194--97.
+\url{https://doi.org/10.1126/science.1185231}.
+
+\bibitem[\citeproctext]{ref-Centola2011}
+---------. 2011. {``{An experimental study of homophily in the adoption
+of health behavior}.''} \emph{Science} 334 (6060): 1269--72.
+\url{https://doi.org/10.1126/science.1207055}.
+
+\bibitem[\citeproctext]{ref-Centola2022}
+---------. 2022. {``{The network science of collective intelligence}.''}
+\emph{Trends in Cognitive Sciences} 26 (11): 923--41.
+\url{https://doi.org/10.1016/j.tics.2022.08.009}.
+
+\bibitem[\citeproctext]{ref-Jaques2019}
+Jaques, Natasha, Angeliki Lazaridou, Edward Hughes, Caglar Gulcehre,
+Pedro A Ortega, DJ Strouse, Joel Z Leibo, and Nando de Freitas. 2019.
+{``{Social Influence as Intrinsic Motivation for Multi-Agent Deep
+Reinforcement Learning}.''} In \emph{Proceedings of the 36th
+International Conference on Machine Learning}, 10.
+\url{https://arxiv.org/abs/1810.08647}.
+
+\bibitem[\citeproctext]{ref-Kossinets2009}
+Kossinets, Gueorgi, and Duncan J. Watts. 2009. {``{Origins of homophily
+in an evolving social network}.''} \emph{American Journal of Sociology}
+115 (2): 405--50. \url{https://doi.org/10.1086/599247}.
+
+\bibitem[\citeproctext]{ref-McPherson2001}
+McPherson, Miller, Lynn Smith-Lovin, and James M Cook. 2001. {``{Birds
+of a Feather: Homophily in Social Networks}.''} \emph{Annual Review of
+Sociology} 27 (1): 415--44.
+\url{https://doi.org/10.1146/annurev.soc.27.1.415}.
+
+\bibitem[\citeproctext]{ref-Ndousse2021}
+Ndousse, Kamal, Douglas Eck, Sergey Levine, and Natasha Jaques. 2021.
+{``{Emergent Social Learning via Multi-agent Reinforcement Learning}.''}
+In \emph{Proceedings of the 38th International Conference on Machine
+Learning}. \url{http://arxiv.org/abs/2010.00581}.
+
+\bibitem[\citeproctext]{ref-Smolla2019}
+Smolla, Marco, and Erol Akçay. 2019. {``{Cultural selection shapes
+network structure}.''} \emph{Science Advances} 5 (8).
+\url{https://doi.org/10.1126/sciadv.aaw0609}.
+
+\bibitem[\citeproctext]{ref-Turner2023a}
+Turner, Matthew A., Cristina Moya, Paul E. Smaldino, and James Holland
+Jones. 2023. {``{The form of uncertainty affects selection for social
+learning}.''} \emph{Evolutionary Human Sciences} 5.
+\url{https://doi.org/10.1017/ehs.2023.11}.
+
+\bibitem[\citeproctext]{ref-Turner2023}
+Turner, Matthew A., Alyson L. Singleton, Mallory J. Harris, Ian
+Harryman, Cesar Augusto Lopez, Ronan Forde Arthur, Caroline Muraida, and
+James Holland Jones. 2023. {``{Minority-group incubators and
+majority-group reservoirs support the diffusion of climate change
+adaptations}.''} \emph{Philosophical Transactions of the Royal Society
+B: Biological Sciences} 378 (1889).
+\url{https://doi.org/10.1098/rstb.2022.0401}.
+
+\bibitem[\citeproctext]{ref-Witt2024}
+Witt, Alexandra, Wataru Toyokawa, Kevin N. Lala, Wolfgang Gaissmaier,
+and Charley M. Wu. 2024. {``{Humans flexibly integrate social
+information despite interindividual differences in reward}.''}
+\emph{Proceedings of the National Academy of Sciences} 121 (39).
+\url{https://doi.org/10.1073/pnas.2404928121/-/DCSupplemental.Published}.
+
+\end{CSLReferences}
+
+
+
+\end{document}

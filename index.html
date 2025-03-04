@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.551">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>EBS 182/282: Agent-based modeling for sustainability</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script async="" src="https://hypothes.is/embed.js"></script>
+<script>
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    document.body.classList.add('hypothesis-enabled');
+  });
+</script>
+
+
+<meta name="citation_title" content="EBS 182/282: Agent-based modeling for sustainability">
+<meta name="citation_language" content="en">
+<meta name="citation_reference" content="citation_title=Birds of a Feather: Homophily in Social Networks;,citation_abstract=Similarity breeds connection. This principle—the homophily princi- ple—structures network ties of every type, including marriage, friendship, work, advice, support, information transfer, exchange, comembership, and other types of re- lationship. The result is that people’s personal networks are homogeneous with regard to many sociodemographic, behavioral, and intrapersonal characteristics. Homophily limits people’s social worlds in a way that has powerful implications for the infor- mation they receive, the attitudes they form, and the interactions they experience. Homophily in race and ethnicity creates the strongest divides in our personal envi- ronments, with age, religion, education, occupation, and gender following in roughly that order. Geographic propinquity, families, organizations, and isomorphic positions in social systems all create contexts in which homophilous relations form. Ties be- tween nonsimilar individuals also dissolve at a higher rate, which sets the stage for the formation of niches (localized positions) within social space. We argue for more research on: (a) the basic ecological processes that link organizations, associations, cultural communities, social movements, and many other social forms; (b) the impact of multiplex ties on the patterns of homophily; and (c) the dynamics of network change over time through which networks and other social entities co-evolve.;,citation_author=Miller McPherson;,citation_author=Lynn Smith-Lovin;,citation_author=James M Cook;,citation_publication_date=2001;,citation_cover_date=2001;,citation_year=2001;,citation_issue=1;,citation_doi=10.1146/annurev.soc.27.1.415;,citation_issn=0360-0572;,citation_volume=27;,citation_journal_title=Annual Review of Sociology;">
+<meta name="citation_reference" content="citation_title=Want climate-change adaptation? Evolutionary theory can help;,citation_abstract=The idea of adaptation, in which an organism or population becomes better suited to its environment, is used in a variety of disciplines. Originating in evolutionary biology, adaptation has been a central theme in biological anthropology and human ecology. More recently, the study of adaptation in the context of climate change has become an important topic of research in the social sciences. While there are clearly commonalities in the different uses of the concept of adaptation in these fields, there are also substantial differences. We describe these differences and suggest that the study of climate-change adaptation could benefit from a re-integration with biological and evolutionary conceptions of human adaptation. This integration would allow us to employ the substantial theoretical tools of evolutionary biology and anthropology to understand what promotes or impedes adaptation. The evolutionary perspective on adaptation focuses on diversity because diversity drives adaptive evolution. Population structures are also critical in facilitating or preventing adaptation to local environmental conditions. This suggests that climate-change adaptation should focus on the sources of innovation and social structures that nurture innovations and allow them to spread. Truly innovative ideas are likely to arise on the periphery of cohesive social groups and spread inward. The evolutionary perspective also suggests that we pay careful attention to correlated traits, which can distort adaptive trajectories, as well as to the importance of risk management in adaptations to variable or uncertain environments. Finally, we suggest that climate-change adaptation could benefit from a broader study of how local groups adapt to their dynamic environments, a process we call “autochthonous adaptation.”.;,citation_author=James Holland Jones;,citation_author=Elspeth Ready;,citation_author=Anne C. Pisor;,citation_publication_date=2021;,citation_cover_date=2021;,citation_year=2021;,citation_issue=4;,citation_doi=10.1002/ajhb.23539;,citation_issn=15206300;,citation_pmid=33247621;,citation_volume=33;,citation_journal_title=American Journal of Human Biology;">
+<meta name="citation_reference" content="citation_title=Spontaneous collective action: Peripheral mobilization during the arab spring;,citation_abstract=Who is responsible for protest mobilization? Models of disease and information diffusion suggest that those central to a social network (the core) should have a greater ability to mobilize others than those who are less well-connected. To the contrary, this article argues that those not central to a network (the periphery) can generate collective action, especially in the context of large-scale protests in authoritarian regimes. To show that those in the core of a social network have no effect on levels of protest, this article develops a dataset of daily protests across 16 countries in the Middle East and North Africa over 14 months from 2010 through 2011. It combines that dataset with geocoded, individual-level communication from the same period and measures the number of connections of each person. Those on the periphery are shown to be responsible for changing levels of protest, with some evidence suggesting that the core’s mobilization efforts lead to fewer protests. These results have implications for a wide range of social choices that rely on interdependent decision making.;,citation_author=Zachary C. Steinert-Threlkeld;,citation_publication_date=2017;,citation_cover_date=2017;,citation_year=2017;,citation_issue=2;,citation_doi=10.1017/S0003055416000769;,citation_isbn=0003055416000;,citation_issn=15375943;,citation_volume=111;,citation_journal_title=American Political Science Review;">
+<meta name="citation_reference" content="citation_title=The form of uncertainty affects selection for social learning;,citation_abstract=Social learning is a critical adaptation for dealing with different forms of variability. Uncertainty is a severe form of variability where the space of possible decisions or probabilities of associated outcomes are unknown. We identified four theoretically important sources of uncertainty: temporal environmental variability; payoff ambiguity; selection-set size; and effective lifespan. When these combine, it is nearly impossible to fully learn about the environment. We develop an evolutionary agent-based model to test how each form of uncertainty affects the evolution of social learning. Agents perform one of several behaviours, modelled as a multi-armed bandit, to acquire payoffs. All agents learn about behavioural pay-offs individually through an adaptive behaviour-choice model that uses a softmax decision rule. Use of vertical and oblique payoff-biased social learning evolved to serve as a scaffold for adaptive individual learning – they are not opposite strategies. Different types of uncertainty had varying effects. Temporal environmental variability suppressed social learning, whereas larger selection-set size promoted social learning, even when the environment changed frequently. Payoff ambiguity and lifespan interacted with other uncertainty parameters. This study begins to explain how social learning can predominate despite highly variable real-world environments when effective individual learning helps individuals recover from learning outdated social information.;,citation_author=Matthew A. Turner;,citation_author=Cristina Moya;,citation_author=Paul E. Smaldino;,citation_author=James Holland Jones;,citation_publication_date=2023;,citation_cover_date=2023;,citation_year=2023;,citation_doi=10.1017/ehs.2023.11;,citation_issn=2513843X;,citation_volume=5;,citation_journal_title=Evolutionary Human Sciences;">
+<meta name="citation_reference" content="citation_title=The form of uncertainty affects selection for social learning;,citation_abstract=Social learning is a critical adaptation for dealing with different forms of variability. Uncertainty is a severe form of variability where the space of possible decisions or probabilities of associated outcomes are unknown. We identified four theoretically important sources of uncertainty: temporal environmental variability; payoff ambiguity; selection-set size; and effective lifespan. When these combine, it is nearly impossible to fully learn about the environment. We develop an evolutionary agent-based model to test how each form of uncertainty affects the evolution of social learning. Agents perform one of several behaviours, modelled as a multi-armed bandit, to acquire payoffs. All agents learn about behavioural pay-offs individually through an adaptive behaviour-choice model that uses a softmax decision rule. Use of vertical and oblique payoff-biased social learning evolved to serve as a scaffold for adaptive individual learning – they are not opposite strategies. Different types of uncertainty had varying effects. Temporal environmental variability suppressed social learning, whereas larger selection-set size promoted social learning, even when the environment changed frequently. Payoff ambiguity and lifespan interacted with other uncertainty parameters. This study begins to explain how social learning can predominate despite highly variable real-world environments when effective individual learning helps individuals recover from learning outdated social information.;,citation_author=Matthew A. Turner;,citation_author=Cristina Moya;,citation_author=Paul E. Smaldino;,citation_author=James Holland Jones;,citation_publication_date=2023;,citation_cover_date=2023;,citation_year=2023;,citation_doi=10.1017/ehs.2023.11;,citation_issn=2513843X;,citation_volume=5;,citation_journal_title=Evolutionary Human Sciences;">
+<meta name="citation_reference" content="citation_title=Minority-group incubators and majority-group reservoirs support the diffusion of climate change adaptations;,citation_abstract=Successful climate change adaptation depends on the spread and maintenance of adaptive behaviours. Current theory suggests that the heterogeneity of metapopulation structure can help adaptations diffuse throughout a population. In this paper, we develop an agent-based model of the spread of adaptations in populations with minority–majority metapopulation structure, where subpopulations learn more or less frequently from their own group compared to the other group. In our simulations, minority–majority-structured populations with moderate degrees of in-group preference better spread and maintained an adaptation compared to populations with more equal-sized groups and weak homophily. Minority groups act as incubators for an adaptation, while majority groups act as reservoirs for an adaptation once it has spread widely. This means that adaptations diffuse throughout populations better when minority groups start out knowing an adaptation, as Indigenous populations often do, while cohesion among majority groups further promotes adaptation diffusion. Our work advances the goal of this theme issue by developing new theoretical insights and demonstrating the utility of cultural evolutionary theory and methods as important tools in the nascent science of culture that climate change adaptation needs. This article is part of the theme issue ‘Climate change adaptation needs a science of culture’.;,citation_author=Matthew A. Turner;,citation_author=Alyson L. Singleton;,citation_author=Mallory J. Harris;,citation_author=Ian Harryman;,citation_author=Cesar Augusto Lopez;,citation_author=Ronan Forde Arthur;,citation_author=Caroline Muraida;,citation_author=James Holland Jones;,citation_publication_date=2023;,citation_cover_date=2023;,citation_year=2023;,citation_issue=1889;,citation_doi=10.1098/rstb.2022.0401;,citation_issn=0962-8436;,citation_pmid=37718602;,citation_volume=378;,citation_journal_title=Philosophical Transactions of the Royal Society B: Biological Sciences;">
+<meta name="citation_reference" content="citation_title=Origins of homophily in an evolving social network;,citation_abstract=The authors investigate the origins of homophily in a large university community, using network data in which interactions, attributes, and affiliations are all recorded over time. The analysis indicates that highly similar pairs do show greater than average propensity to form new ties; however, it also finds that tie formation is heavily biased by triadic closure and focal closure, which effectively constrain the opportunities among which individuals may select. In the case of triadic closure, moreover, selection to &amp;amp;amp;quot;friend of a friend&amp;quot; status is determined by an analogous combination of individual preference and structural proximity. The authors conclude that the dynamic interplay of choice homophily and induced homophily, compounded over many &quot;generations&quot; of biased selection of similar individuals to structurally proximate positions, can amplify even a modest preference for similar others, via a cumulative advantagelike process, to produce striking patterns of observed homophily.  2009 by The University of Chicago. All rights reserved.;,citation_author=Gueorgi Kossinets;,citation_author=Duncan J. Watts;,citation_publication_date=2009;,citation_cover_date=2009;,citation_year=2009;,citation_issue=2;,citation_doi=10.1086/599247;,citation_issn=00029602;,citation_volume=115;,citation_journal_title=American Journal of Sociology;">
+<meta name="citation_reference" content="citation_title=The Spread of Behavior in an Online Social Network Experiment;,citation_abstract=... There are four advantages of this experimental design over observational data. ... effects of topology on diffusion when, for example, the local structure of a social network correlates with greater resources for learning about or adopting an innovation (11 ... iii) This study eliminates the ...;,citation_author=Damon Centola;,citation_publication_date=2010;,citation_cover_date=2010;,citation_year=2010;,citation_fulltext_html_url=http://www.sciencemag.org/cgi/doi/10.1126/science.1185231;,citation_issue=5996;,citation_doi=10.1126/science.1185231;,citation_isbn=0036-8075;,citation_issn=0036-8075;,citation_pmid=20813952;,citation_volume=329;,citation_journal_title=Science;">
+<meta name="citation_reference" content="citation_title=An experimental study of homophily in the adoption of health behavior;,citation_abstract=How does the composition of a population affect the adoption of health behaviors and innovations? Homophily - similarity of social contacts - can increase dyadic-level influence, but it can also force less healthy individuals to interact primarily with one another, thereby excluding them from interactions with healthier, more influential, early adopters. As a result, an important network-level effect of homophily is that the people who are most in need of a health innovation may be among the least likely to adopt it. Despite the importance of this thesis, confounding factors in observational data have made it difficult to test empirically. We report results from a controlled experimental study on the spread of a health innovation through fixed social networks in which the level of homophily was independently varied. We found that homophily significantly increased overall adoption of a new health behavior, especially among those most in need of it.;,citation_author=Damon Centola;,citation_publication_date=2011;,citation_cover_date=2011;,citation_year=2011;,citation_issue=6060;,citation_doi=10.1126/science.1207055;,citation_issn=10959203;,citation_volume=334;,citation_journal_title=Science;">
+<meta name="citation_reference" content="citation_title=Humans flexibly integrate social information despite interindividual differences in reward;,citation_author=Alexandra Witt;,citation_author=Wataru Toyokawa;,citation_author=Kevin N. Lala;,citation_author=Wolfgang Gaissmaier;,citation_author=Charley M. Wu;,citation_publication_date=2024;,citation_cover_date=2024;,citation_year=2024;,citation_issue=39;,citation_doi=10.1073/pnas.2404928121/-/DCSupplemental.Published;,citation_volume=121;,citation_journal_title=Proceedings of the National Academy of Sciences;">
+<meta name="citation_reference" content="citation_title=Cultural selection shapes network structure;,citation_abstract=Cultural evolution relies on the social transmission of cultural traits along a population’s social network. Research indicates that network structure affects information spread and thus the capacity for cumulative culture. However, how network structure itself is driven by population-culture co-evolution remains largely unclear. We use a simple model to investigate how populations negotiate the trade-off between acquiring new skills and getting better at existing skills and how this trade-off shapes social networks. We find unexpected eco-evolutionary feedbacks from culture onto social networks and vice versa. We show that selecting for skill generalists results in sparse networks with diverse skill sets, whereas selecting for skill specialists results in dense networks and a population that specializes on the same few skills on which everyone is an expert. Our model advances our understanding of the complex feedbacks in cultural evolution and demonstrates how individual-level behavior can lead to the emergence of population-level structure.;,citation_author=Marco Smolla;,citation_author=Erol Akçay;,citation_publication_date=2019;,citation_cover_date=2019;,citation_year=2019;,citation_issue=8;,citation_doi=10.1126/sciadv.aaw0609;,citation_issn=23752548;,citation_pmid=31453324;,citation_volume=5;,citation_journal_title=Science Advances;">
+<meta name="citation_reference" content="citation_title=The network science of collective intelligence;,citation_abstract=In the last few years, breakthroughs in computational and experimental techniques have produced several key discoveries in the science of networks and human collective intelligence. This review presents the latest scientific findings from two key fields of research: collective problem-solving and the wisdom of the crowd. I demonstrate the core theoretical tensions separating these research traditions and show how recent findings offer a new synthesis for understanding how network dynamics alter collective intelligence, both positively and negatively. I conclude by highlighting current theoretical problems at the forefront of research on networked collective intelligence, as well as vital public policy challenges that require new research efforts.;,citation_author=Damon Centola;,citation_publication_date=2022;,citation_cover_date=2022;,citation_year=2022;,citation_fulltext_html_url=https://doi.org/10.1016/j.tics.2022.08.009;,citation_issue=11;,citation_doi=10.1016/j.tics.2022.08.009;,citation_issn=1879307X;,citation_pmid=36180361;,citation_volume=26;,citation_journal_title=Trends in Cognitive Sciences;,citation_publisher=Elsevier Ltd;">
+<meta name="citation_reference" content="citation_title=Emergent Social Learning via Multi-agent Reinforcement Learning;,citation_abstract=Social learning is a key component of human and animal intelligence. By taking cues from the behavior of experts in their environment, social learners can acquire sophisticated behavior and rapidly adapt to new circumstances. This paper investigates whether independent reinforcement learning (RL) agents in a multi-agent environment can learn to use social learning to improve their performance. We find that in most circumstances, vanilla model-free RL agents do not use social learning. We analyze the reasons for this deficiency, and show that by imposing constraints on the training environment and introducing a model-based auxiliary loss we are able to obtain generalized social learning policies which enable agents to: i) discover complex skills that are not learned from single-agent training, and ii) adapt online to novel environments by taking cues from experts present in the new environment. In contrast, agents trained with model-free RL or imitation learning generalize poorly and do not succeed in the transfer tasks. By mixing multi-agent and solo training, we can obtain agents that use social learning to gain skills that they can deploy when alone, even out-performing agents trained alone from the start.;,citation_author=Kamal Ndousse;,citation_author=Douglas Eck;,citation_author=Sergey Levine;,citation_author=Natasha Jaques;,citation_publication_date=2021;,citation_cover_date=2021;,citation_year=2021;,citation_fulltext_html_url=http://arxiv.org/abs/2010.00581;,citation_conference_title=Proceedings of the 38th international conference on machine learning;">
+<meta name="citation_reference" content="citation_title=Social Influence as Intrinsic Motivation for Multi-Agent Deep Reinforcement Learning;,citation_abstract=We propose a unified mechanism for achieving coordination and communication in Multi-Agent Reinforcement Learning (MARL), through rewarding agents for having causal influence over other agents’ actions. Causal influence is assessed using counterfactual reasoning. At each timestep, an agent simulates alternate actions that it could have taken, and computes their effect on the behavior of other agents. Actions that lead to bigger changes in other agents’ behavior are considered influential and are rewarded. We show that this is equivalent to rewarding agents for having high mutual information between their actions. Empirical results demonstrate that influence leads to enhanced coordination and communication in challenging social dilemma environments, dramatically increasing the learning curves of the deep RL agents, and leading to more meaningful learned communication protocols. The influence rewards for all agents can be computed in a decentralized way by enabling agents to learn a model of other agents using deep neural networks. In contrast, key previous works on emergent communication in the MARL setting were unable to learn diverse policies in a decentralized manner and had to resort to centralized training. Consequently, the influence reward opens up a window of new opportunities for research in this area.;,citation_author=Natasha Jaques;,citation_author=Angeliki Lazaridou;,citation_author=Edward Hughes;,citation_author=Caglar Gulcehre;,citation_author=Pedro A Ortega;,citation_author=DJ Strouse;,citation_author=Joel Z Leibo;,citation_author=Nando Freitas;,citation_publication_date=2019;,citation_cover_date=2019;,citation_year=2019;,citation_fulltext_html_url=https://arxiv.org/abs/1810.08647;,citation_conference_title=Proceedings of the 36th international conference on machine learning;">
+</head>
+
+<body>
+
+<header id="title-block-header" class="quarto-title-block default toc-left page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">EBS 182/282: Agent-based modeling for sustainability</h1>
+          </div>
+
+    
+    <div class="quarto-title-meta-container">
+      <div class="quarto-title-meta-column-start">
+        
+        <div class="quarto-title-meta">
+
+                
+          
+                
+              </div>
+      </div>
+      <div class="quarto-title-meta-column-end quarto-other-formats-target">
+      <div class="quarto-alternate-formats"><div class="quarto-title-meta-heading">Other Formats</div><div class="quarto-title-meta-contents"><p><a href="index.pdf"><i class="bi bi-file-pdf"></i>PDF</a></p></div></div></div>
+    </div>
+
+
+
+    <div class="quarto-other-links-text-target">
+    </div>  </div>
+</header><div id="quarto-content" class="page-columns page-rows-contents page-layout-article toc-left">
+<div id="quarto-sidebar-toc-left" class="sidebar toc-left">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#contact-information" id="toc-contact-information" class="nav-link active" data-scroll-target="#contact-information">Contact information</a></li>
+  <li><a href="#logistics" id="toc-logistics" class="nav-link" data-scroll-target="#logistics">Logistics</a></li>
+  <li><a href="#motivation" id="toc-motivation" class="nav-link" data-scroll-target="#motivation">Motivation</a></li>
+  <li><a href="#learning-goals" id="toc-learning-goals" class="nav-link" data-scroll-target="#learning-goals">Learning goals</a></li>
+  <li><a href="#prerequisites" id="toc-prerequisites" class="nav-link" data-scroll-target="#prerequisites">Prerequisites</a></li>
+  <li><a href="#coursework-and-grading" id="toc-coursework-and-grading" class="nav-link" data-scroll-target="#coursework-and-grading">Coursework and grading</a></li>
+  <li><a href="#expectations-and-policies" id="toc-expectations-and-policies" class="nav-link" data-scroll-target="#expectations-and-policies">Expectations and policies</a></li>
+  <li><a href="#course-outline" id="toc-course-outline" class="nav-link" data-scroll-target="#course-outline">Course outline</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul>
+</nav>
+</div>
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+</div>
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+  
+
+
+<section id="contact-information" class="level3">
+<h3 class="anchored" data-anchor-id="contact-information">Contact information</h3>
+<p>Instructor: Matt Turner [<a href="https://mt.digital">web</a>]</p>
+<p>Email: <a href="maturner@stanford.edu">maturner@stanford.edu</a></p>
+<p>Office hours: 1-3 PM Monday and Tuesday in Y2E2 357.</p>
+<p>Also available by appointment for in-person or Zoom meetings.</p>
+</section>
+<section id="logistics" class="level3">
+<h3 class="anchored" data-anchor-id="logistics">Logistics</h3>
+<p>Class times: MW 11:30 - 12:50, Spring 2025</p>
+<p>Course website: <a href="https://css4s.github.io/abm-course">https://css4s.github.io/abm-course</a></p>
+</section>
+<section id="motivation" class="level3">
+<h3 class="anchored" data-anchor-id="motivation">Motivation</h3>
+<p>Sustainable practices are useless if no one practices them. The development and diffusion of sustainable practices requires a mix of individual experimentation, social learning and influence, and cooperation and coordination, just to name a few social behaviors. It is essential, then, to develop rigorous, flexible, and practical methods for the simulation of social systems. Students in this course will learn how to use agent-based model simulations of social diffusion of sustainable practices, just like an engineer might first develop computer models to design new products, which are then made into prototypes, and eventually built and delivered to customers. <em>Sustainable practices</em> here could be taken as any behavior that advances progress towards achieving <a href="https://sdgs.un.org/goals">UN Sustainable Development Goals</a>.</p>
+</section>
+<section id="learning-goals" class="level3">
+<h3 class="anchored" data-anchor-id="learning-goals">Learning goals</h3>
+<p>Students who successfully complete the course will learn:</p>
+<ul>
+<li>To understand the theoretical origins of agent-based models of social behavior and how to put them to use to support decision making to promote sustainability.</li>
+<li>To write computational social science research papers, including specific tips for describing agent-based models.</li>
+<li>Software development skills, such as the ability to write and organize R functions and scripts for more sustainable <em>software</em> practices. Software development skills like these make research more reproducible, efficient, and fun.</li>
+</ul>
+</section>
+<section id="prerequisites" class="level3">
+<h3 class="anchored" data-anchor-id="prerequisites">Prerequisites</h3>
+<p>The course is designed so that students with minimal programming experience can succeed. Students with no programming experience may feel lost unless extra time is invested. In any case, I am happy to help students with any level of programming experience to elevate their skills, but it is the student’s responsibility to seek out help. We will be programming in R using RStudio on student laptops and also running our models on the <a href="https://srcc.stanford.edu/farmshare">Farmshare computing cluster</a> provided for educational purposes at Stanford.</p>
+<p>Some experience with mathematics, especially probability and statistics, will also help, but is not necessary as long as a student in need of help seeks it out. I am happy to help students succeed with any level of mathematical experience.</p>
+</section>
+<section id="coursework-and-grading" class="level3">
+<h3 class="anchored" data-anchor-id="coursework-and-grading">Coursework and grading</h3>
+<ul>
+<li>Four problem sets (10% each, 40% total)</li>
+<li>Midterm project (20%)</li>
+<li>Final project (40%)</li>
+</ul>
+<p>Attendance is essential for success in this course. This course is a hybrid lecture-lab course, where about half of class time will be devoted to lecture and half to lab work where I will be available for individual help and during which we will sometimes be assigned to groups to discuss course material or work together on problem sets. Whether a given course meeting is a lecture or lab will depend on the rate of our progress through the different subjects and student interests and needs.</p>
+<p>The four problem sets will tentatively follow this sequence:</p>
+<ol type="1">
+<li>Introduction to agent-based modeling and computational social science for sustainability</li>
+<li>Computational experiment infrastructure: cluster computing and data management for agent-based modeling</li>
+<li>Reinforcement learning agents, uncertain environments, and selection for social learning</li>
+<li>Cooperation, coordination, social influence, and dynamic social networks</li>
+</ol>
+<p>The midterm project is just a first draft of the final project, so in that sense they are one big project. In these projects, students will write their own research papers by following a detailed outline to provide all necessary components. I will work with students during in-class project workshops and in office hours or other out of class time to identify a project of interest and develop the modeling approach to make a real contribution to understanding their chosen problem.</p>
+<section id="accessibility" class="level4">
+<h4 class="anchored" data-anchor-id="accessibility">Accessibility</h4>
+<p>Students who need an academic accommodation based on the impact of a disability must initiate the request with the Office of Accessible Education (OAE). Professional staff will evaluate the request with required documentation, recommend reasonable accommodations, and prepare an Accommodation Letter for faculty. Unless the student has a temporary disability, Accommodation letters are issued for the entire academic year. Students should contact the OAE as soon as possible since timely notice is needed to coordinate accommodations. The OAE is located at 563 Salvatierra Walk (phone: 650-723-1066).</p>
+</section>
+<section id="late-work-policy" class="level4">
+<h4 class="anchored" data-anchor-id="late-work-policy">Late work policy</h4>
+<p>Unless we discuss otherwise ahead of time, the late work policy is as follows.</p>
+<ul>
+<li>Problem sets: 50% credit up to one week late.</li>
+<li>Midterm: 50% credit up to one week late.</li>
+<li>Final: No credit.</li>
+</ul>
+</section>
+<section id="course-technology-and-materials" class="level4">
+<h4 class="anchored" data-anchor-id="course-technology-and-materials">Course technology and materials</h4>
+<ul>
+<li>Students will use the R programming language, including the <a href="https://css4s.github.io/socmod/"><code>socmod</code></a> library I am developing for this and a suite of courses in Computational Social Science for Sustainability (CSS4S) and for research use.</li>
+<li>Readings will come from journal articles and course notes that will be periodically released.</li>
+<li>Students will receive detailed in-person guidance on how to develop, execute, and communicate their own social science for sustainability projects using agent-based modeling.</li>
+</ul>
+</section>
+</section>
+<section id="expectations-and-policies" class="level3">
+<h3 class="anchored" data-anchor-id="expectations-and-policies">Expectations and policies</h3>
+<p>You can expect me to be there for you to help you develop programming skills to understand and complete the problem sets. You can expect me to respond promptly and attentively to your needs in the course. This course is programming-intensive: you’ll be expected to use and write functions in R and use some more advanced programming concepts.</p>
+<p>I expect students in the course to seek help early if they encounter difficulties. I am happy to make extra time outside the listed office hours to bring students up to speed, in person or on Zoom.</p>
+<p>If life events make finishing the problem sets difficult, I am happy to discuss accommodations. However, these needs must be communicated before the deadline. Please don’t hesitate to ask for help in any way before or after a deadline. I know life happens and I will try to find a way to facilitate your success in the course.</p>
+</section>
+<section id="course-outline" class="level3">
+<h3 class="anchored" data-anchor-id="course-outline">Course outline</h3>
+<p>The agent-based approach allows social scientists to synthesize social network and cognitive models to represent social behavior structured by our dynamic social relationships. Simulations of <em>interventions</em> to promote sustainable practices can be used to select from candidate sets of interventions in different real-world social networks. When reality inevitably does not match predictions, this provides motivation and guidance to empirical studies that can help infer potential mechanisms inhibiting the adoption of sustainable practices. These mechanisms can be included in future model predictions, which again motivates further empirical refinement.</p>
+<p>This course will teach students how to use agent-based models to simulate the process of social diffusion in diverse contexts with different behaviors including exploration, social learning and influence, and cooperation and coordination. Developing this expertise requires developing and combining computing skills and a foundational knowledge of relevant social and behavioral science.</p>
+<ol type="1">
+<li>Introduction to computational social science for sustainability and agent based modeling.</li>
+<li>Computational infrastructure for agent-based modeling. Agent-based modeling requires some specific computational techniques: it is necessary to write one’s own functions and use higher-order functions; wrangle data; and plot simulation outputs to do agent-based modeling. For publication-quality research it is often also necessary to use hundreds or more computer processors at a time, enabled by using shared supercomputer clusters, like <a href="https://srcc.stanford.edu/farmshare">Famrshare for educational purposes</a> or <a href="https://www.sherlock.stanford.edu/">Sherlock for research</a> at Stanford. Students will learn these techniques and good programming practices including documentation and “literate programming” that uses informative variable names.</li>
+<li>Social learning, whose utility is sensitive to ecological uncertainty, since variability or unpredictability can reduce the value of social information <span class="citation" data-cites="Turner2023a">(<a href="#ref-Turner2023a" role="doc-biblioref">Turner, Moya, et al. 2023</a>)</span>. The adaptive mixing of social and asocial information enables humans to optimize behavioral choices, as observed in experiments complemented by agent-based models with reinforcement learning agents <span class="citation" data-cites="Witt2024">(<a href="#ref-Witt2024" role="doc-biblioref">Witt et al. 2024</a>)</span>. Social reinforcement learning agents are actively being developed as a strategy to harness advantages of social learning for artificial intelligence systems <span class="citation" data-cites="Jaques2019 Ndousse2021">(<a href="#ref-Jaques2019" role="doc-biblioref">Jaques et al. 2019</a>; <a href="#ref-Ndousse2021" role="doc-biblioref">Ndousse et al. 2021</a>)</span>.</li>
+<li>Group structure in human relationships and its emergence via <em>homophily</em>, i.e., the phenomenon for people to more frequently interact within their own group versus between groups <span class="citation" data-cites="McPherson2001">(<a href="#ref-McPherson2001" role="doc-biblioref">McPherson, Smith-Lovin, and Cook 2001</a>)</span>, which could be by choice or imposed by socio-economic or other circumstance <span class="citation" data-cites="Kossinets2009">(<a href="#ref-Kossinets2009" role="doc-biblioref">Kossinets and Watts 2009</a>)</span>. This can create echo chambers and promote between-group animosity but can also provide a substrate for greater innovation and diffusion of adaptations compared to homogeneous populations <span class="citation" data-cites="Centola2010 Centola2011 Turner2023">(<a href="#ref-Centola2010" role="doc-biblioref">Centola 2010</a>, <a href="#ref-Centola2011" role="doc-biblioref">2011</a>; <a href="#ref-Turner2023" role="doc-biblioref">Turner, Singleton, et al. 2023</a>)</span>. Social networks are dynamic: their evolution may promote adaptation <em>or</em> maladaptation <span class="citation" data-cites="Smolla2019 Centola2022">(<a href="#ref-Smolla2019" role="doc-biblioref">Smolla and Akçay 2019</a>; <a href="#ref-Centola2022" role="doc-biblioref">Centola 2022</a>)</span>.</li>
+<li>Throughout presentation of course material, students will learn how computational models of social behavior could be used for understanding real-world phenomena, with a focus on their use in decision making to support sustainability.</li>
+</ol>
+</section>
+<section id="references" class="level3 unnumbered">
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-Centola2010" class="csl-entry" role="listitem">
+Centola, Damon. 2010. <span>“<span class="nocase">The Spread of Behavior in an Online Social Network Experiment</span>.”</span> <em>Science</em> 329 (5996): 1194–97. <a href="https://doi.org/10.1126/science.1185231">https://doi.org/10.1126/science.1185231</a>.
+</div>
+<div id="ref-Centola2011" class="csl-entry" role="listitem">
+———. 2011. <span>“<span class="nocase">An experimental study of homophily in the adoption of health behavior</span>.”</span> <em>Science</em> 334 (6060): 1269–72. <a href="https://doi.org/10.1126/science.1207055">https://doi.org/10.1126/science.1207055</a>.
+</div>
+<div id="ref-Centola2022" class="csl-entry" role="listitem">
+———. 2022. <span>“<span class="nocase">The network science of collective intelligence</span>.”</span> <em>Trends in Cognitive Sciences</em> 26 (11): 923–41. <a href="https://doi.org/10.1016/j.tics.2022.08.009">https://doi.org/10.1016/j.tics.2022.08.009</a>.
+</div>
+<div id="ref-Jaques2019" class="csl-entry" role="listitem">
+Jaques, Natasha, Angeliki Lazaridou, Edward Hughes, Caglar Gulcehre, Pedro A Ortega, DJ Strouse, Joel Z Leibo, and Nando de Freitas. 2019. <span>“<span class="nocase">Social Influence as Intrinsic Motivation for Multi-Agent Deep Reinforcement Learning</span>.”</span> In <em>Proceedings of the 36th International Conference on Machine Learning</em>, 10. <a href="https://arxiv.org/abs/1810.08647">https://arxiv.org/abs/1810.08647</a>.
+</div>
+<div id="ref-Kossinets2009" class="csl-entry" role="listitem">
+Kossinets, Gueorgi, and Duncan J. Watts. 2009. <span>“<span class="nocase">Origins of homophily in an evolving social network</span>.”</span> <em>American Journal of Sociology</em> 115 (2): 405–50. <a href="https://doi.org/10.1086/599247">https://doi.org/10.1086/599247</a>.
+</div>
+<div id="ref-McPherson2001" class="csl-entry" role="listitem">
+McPherson, Miller, Lynn Smith-Lovin, and James M Cook. 2001. <span>“<span class="nocase">Birds of a Feather: Homophily in Social Networks</span>.”</span> <em>Annual Review of Sociology</em> 27 (1): 415–44. <a href="https://doi.org/10.1146/annurev.soc.27.1.415">https://doi.org/10.1146/annurev.soc.27.1.415</a>.
+</div>
+<div id="ref-Ndousse2021" class="csl-entry" role="listitem">
+Ndousse, Kamal, Douglas Eck, Sergey Levine, and Natasha Jaques. 2021. <span>“<span class="nocase">Emergent Social Learning via Multi-agent Reinforcement Learning</span>.”</span> In <em>Proceedings of the 38th International Conference on Machine Learning</em>. <a href="http://arxiv.org/abs/2010.00581">http://arxiv.org/abs/2010.00581</a>.
+</div>
+<div id="ref-Smolla2019" class="csl-entry" role="listitem">
+Smolla, Marco, and Erol Akçay. 2019. <span>“<span class="nocase">Cultural selection shapes network structure</span>.”</span> <em>Science Advances</em> 5 (8). <a href="https://doi.org/10.1126/sciadv.aaw0609">https://doi.org/10.1126/sciadv.aaw0609</a>.
+</div>
+<div id="ref-Turner2023a" class="csl-entry" role="listitem">
+Turner, Matthew A., Cristina Moya, Paul E. Smaldino, and James Holland Jones. 2023. <span>“<span class="nocase">The form of uncertainty affects selection for social learning</span>.”</span> <em>Evolutionary Human Sciences</em> 5. <a href="https://doi.org/10.1017/ehs.2023.11">https://doi.org/10.1017/ehs.2023.11</a>.
+</div>
+<div id="ref-Turner2023" class="csl-entry" role="listitem">
+Turner, Matthew A., Alyson L. Singleton, Mallory J. Harris, Ian Harryman, Cesar Augusto Lopez, Ronan Forde Arthur, Caroline Muraida, and James Holland Jones. 2023. <span>“<span class="nocase">Minority-group incubators and majority-group reservoirs support the diffusion of climate change adaptations</span>.”</span> <em>Philosophical Transactions of the Royal Society B: Biological Sciences</em> 378 (1889). <a href="https://doi.org/10.1098/rstb.2022.0401">https://doi.org/10.1098/rstb.2022.0401</a>.
+</div>
+<div id="ref-Witt2024" class="csl-entry" role="listitem">
+Witt, Alexandra, Wataru Toyokawa, Kevin N. Lala, Wolfgang Gaissmaier, and Charley M. Wu. 2024. <span>“<span class="nocase">Humans flexibly integrate social information despite interindividual differences in reward</span>.”</span> <em>Proceedings of the National Academy of Sciences</em> 121 (39). <a href="https://doi.org/10.1073/pnas.2404928121/-/DCSupplemental.Published">https://doi.org/10.1073/pnas.2404928121/-/DCSupplemental.Published</a>.
+</div>
+</div></section></div></main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
