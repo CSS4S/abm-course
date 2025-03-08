@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.551">
+<meta name="generator" content="quarto-1.6.39">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -49,10 +49,10 @@ div.csl-indent {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-81e35ebdb4125010edbabe6010586085.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script async="" src="https://hypothes.is/embed.js"></script>
 <script>
   window.document.addEventListener("DOMContentLoaded", function (_event) {
@@ -124,7 +124,7 @@ div.csl-indent {
   </ul>
 </nav>
 </div>
-<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
 </div>
 <main class="content quarto-banner-title-block" id="quarto-document-content">
 
@@ -153,7 +153,7 @@ div.csl-indent {
 <h3 class="anchored" data-anchor-id="learning-goals">Learning goals</h3>
 <p>Students who successfully complete the course will learn:</p>
 <ul>
-<li>To understand the theoretical origins of agent-based models of social behavior and how to put them to use to support decision making to promote sustainability.</li>
+<li>To apply social and behavioral science to develop agent-based models of social behavior used to support decision making to promote sustainability.</li>
 <li>To write computational social science research papers, including specific tips for describing agent-based models.</li>
 <li>Software development skills, such as the ability to write and organize R functions and scripts for more sustainable <em>software</em> practices. Software development skills like these make research more reproducible, efficient, and fun.</li>
 </ul>
@@ -171,12 +171,12 @@ div.csl-indent {
 <li>Final project (40%)</li>
 </ul>
 <p>Attendance is essential for success in this course. This course is a hybrid lecture-lab course, where about half of class time will be devoted to lecture and half to lab work where I will be available for individual help and during which we will sometimes be assigned to groups to discuss course material or work together on problem sets. Whether a given course meeting is a lecture or lab will depend on the rate of our progress through the different subjects and student interests and needs.</p>
-<p>The four problem sets will tentatively follow this sequence:</p>
+<p>The three problem sets will tentatively follow this sequence:</p>
 <ol type="1">
-<li>Introduction to agent-based modeling and computational social science for sustainability</li>
+<li>Introduction to agent-based modeling, computational social science for sustainability, and modeling the diffusion of sustainable practices</li>
 <li>Computational experiment infrastructure: cluster computing and data management for agent-based modeling</li>
-<li>Reinforcement learning agents, uncertain environments, and selection for social learning</li>
-<li>Cooperation, coordination, social influence, and dynamic social networks</li>
+<li>Social influence, cooperation, coordination, and dynamic social networks</li>
+<li>Advanced topics including reinforcement learning agents, uncertain environments, and spatial agent-based modeling.</li>
 </ol>
 <p>The midterm project is just a first draft of the final project, so in that sense they are one big project. In these projects, students will write their own research papers by following a detailed outline to provide all necessary components. I will work with students during in-class project workshops and in office hours or other out of class time to identify a project of interest and develop the modeling approach to make a real contribution to understanding their chosen problem.</p>
 <section id="accessibility" class="level4">
@@ -295,18 +295,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -338,7 +327,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -346,7 +355,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
@@ -443,7 +452,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {
