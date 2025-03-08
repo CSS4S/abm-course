@@ -49,12 +49,13 @@ Some experience with mathematics, especially probability and statistics, will al
 
 Attendance is essential for success in this course. This course is a hybrid lecture-lab course, where about half of class time will be devoted to lecture and half to lab work where I will be available for individual help and during which we will sometimes be assigned to groups to discuss course material or work together on problem sets. Whether a given course meeting is a lecture or lab will depend on the rate of our progress through the different subjects and student interests and needs.
 
-The four problem sets will tentatively follow this sequence:
+The three problem sets will tentatively follow this sequence:
 
-1. Introduction to agent-based modeling and computational social science for sustainability
+1. Introduction to agent-based modeling, computational social science for
+   sustainability, and modeling the diffusion of sustainable practices
 2. Computational experiment infrastructure: cluster computing and data management for agent-based modeling 
-4. Cooperation, coordination, social influence, and dynamic social networks
-3. Advanced topics including reinforcement learning agents, uncertain environments, and spatial agent-based modeling. 
+3. Social influence, cooperation, coordination, and dynamic social networks
+4. Advanced topics including reinforcement learning agents, uncertain environments, and spatial agent-based modeling. 
 
 The midterm project is just a first draft of the final project, so in that sense they are one big project. In these projects, students will write their own research papers by following a detailed outline to provide all necessary components. I will work with students during in-class project workshops and in office hours or other out of class time to identify a project of interest and develop the modeling approach to make a real contribution to understanding their chosen problem.
 
